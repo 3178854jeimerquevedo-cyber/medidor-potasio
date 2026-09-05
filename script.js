@@ -23,18 +23,26 @@ function nuevaMedicion() {
 
     // Determinamos el nivel
     let nivelTexto;
+    let claseNivel;
 
-    if (potasio < 40) {
+    if  (potasio < 40) {
 
         nivelTexto = "NIVEL: BAJO";
+        claseNivel = "bajo";
+    } else if (potasio <  80) {
+
+        nivelTexto = "NIVEL: MEDIO";
+        claseNivel = "medio";
 
     } else if (potasio <= 120) {
 
         nivelTexto = "NIVEL: ADECUADO";
+        claseNivel =  "adecuado";
 
     } else {
 
         nivelTexto = "NIVEL: ALTO";
+        claseNivel = "alto";
     }
 
     // Mostramos los resultados
@@ -49,4 +57,6 @@ function nuevaMedicion() {
     document.getElementById("azul").textContent = azul;
 
     document.getElementById("nivel").textContent = nivelTexto;
+
+    document.getElementById("nivel").className = "nivel" + claseNivel;
 }
