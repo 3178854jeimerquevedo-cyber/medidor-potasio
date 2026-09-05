@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Medidor de Potasio</title>
+
+    <link rel="stylesheet" href="estilo.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🌱 MEDIDOR DE POTASIO</h1>
+
+        <p>
+            Sistema experimental para estimar el potasio
+            presente en una muestra de suelo.
+        </p>
+
+    </header>
+
+
+    <main>
+
+        <section class="medidor">
+
+            <h2>Resultado de la medición</h2>
+
+            <div class="resultado">
+
+                <span id="potasio">72</span>
+
+                <span class="unidad">ppm</span>
+
+            </div>
+
+            <div id="nivel" class="nivel adecuado">
+
+                NIVEL: ADECUADO
+
+            </div>
+
+
+            <div class="datos">
+
+                <p>
+                    <strong>Lectura óptica:</strong>
+                    <span id="lectura">645</span>
+                </p>
+
+                <p>
+                    <strong>Rojo:</strong>
+                    <span id="rojo">645</span>
+                </p>
+
+                <p>
+                    <strong>Verde:</strong>
+                    <span id="verde">520</span>
+                </p>
+
+                <p>
+                    <strong>Azul:</strong>
+                    <span id="azul">450</span>
+                </p>
+
+            </div>
+
+
+            <button onclick="nuevaMedicion()">
+                NUEVA MEDICIÓN
+            </button>
+
+        </section>
+
+
+        <section class="informacion">
+
+            <h2>¿Cómo funciona?</h2>
+
+            <p>
+                Primero se obtiene un extracto de la muestra
+                de suelo. Luego se coloca el extracto sobre
+                una tira reactiva específica para potasio.
+            </p>
+
+            <p>
+                La tira cambia de color y el sensor TCS230
+                detecta las características ópticas de ese
+                cambio.
+            </p>
+
+            <p>
+                El ESP32 procesa la lectura y posteriormente
+                utiliza una calibración experimental para
+                obtener una concentración estimada de potasio.
+            </p>
+
+        </section>
+
+
+        <section class="proceso">
+
+            <h2>Proceso del proyecto</h2>
+
+            <div class="pasos">
+
+                <div>
+                    <span>1</span>
+                    <p>Muestra de suelo</p>
+                </div>
+
+                <div>
+                    <span>2</span>
+                    <p>Extracción</p>
+                </div>
+
+                <div>
+                    <span>3</span>
+                    <p>Tira reactiva</p>
+                </div>
+
+                <div>
+                    <span>4</span>
+                    <p>TCS230</p>
+                </div>
+
+                <div>
+                    <span>5</span>
+                    <p>ESP32</p>
+                </div>
+
+                <div>
+                    <span>6</span>
+                    <p>Resultado</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Proyecto escolar - Medidor de potasio en suelo
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
