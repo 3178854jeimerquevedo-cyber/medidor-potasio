@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5ee;
+    color: #222;
+}
+
+
+/* ENCABEZADO */
+
+header {
+    background: #218739;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 0;
+}
+
+
+/* CONTENIDO */
+
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+
+/* TARJETA DEL MEDIDOR */
+
+.medidor {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.medidor h2 {
+    margin-top: 0;
+}
+
+
+/* RESULTADO */
+
+.resultado {
+    margin: 20px;
+}
+
+#potasio {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.unidad {
+    font-size: 25px;
+}
+
+
+/* NIVEL */
+
+.nivel {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.adecuado {
+    background: #c9f2c9;
+    color: #176b17;
+}
+
+
+/* DATOS DEL SENSOR */
+
+.datos {
+    background: #f3f3f3;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.datos p {
+    margin: 10px 0;
+}
+
+
+/* BOTÓN */
+
+button {
+    background: #218739;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #176b2c;
+}
+
+
+/* SECCIONES */
+
+.informacion,
+.proceso {
+    background: white;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.informacion h2,
+.proceso h2 {
+    color: #218739;
+}
+
+
+/* PASOS DEL PROCESO */
+
+.pasos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.pasos div {
+    text-align: center;
+    padding: 15px;
+    background: #eef5ee;
+    border-radius: 15px;
+}
+
+.pasos span {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background: #218739;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+
+/* PIE DE PÁGINA */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+    background: #1c5127;
+    color: white;
+}
+
+
+/* ADAPTACIÓN PARA CELULAR */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    .resultado #potasio {
+        font-size: 48px;
+    }
+
+    .pasos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main {
+        width: 94%;
+    }
+
+}
