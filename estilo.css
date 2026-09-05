@@ -79,9 +79,21 @@ main {
     margin-bottom: 20px;
 }
 
+.bajo {
+    background: #f8d7da;
+    color: #842029;
+}
+.medio {
+    background: #fff3cd;
+    color: #664d03;
+}
 .adecuado {
-    background: #c9f2c9;
-    color: #176b17;
+    background: #d1e7dd;
+    color: #0f5132;
+}
+.alto {
+    background: #ffe5b;
+    color: #7a4100;
 }
 
 
