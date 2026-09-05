@@ -57,6 +57,7 @@ function nuevaMedicion() {
     document.getElementById("azul").textContent = azul;
 
     document.getElementById("nivel").textContent = nivelTexto;
-
     document.getElementById("nivel").className = "nivel" + claseNivel;
+    
+    document.body.className = "fondo-" + claseNivel;
 }
