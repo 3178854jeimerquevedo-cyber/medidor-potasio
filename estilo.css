@@ -7,9 +7,21 @@ body {
     font-family: "DM Sans", sans-serif;
     background: #84FA48;
     color: #222;
+    transition: background-color 1.2s ease;
 }
 
-
+body.fondo-bajo { 
+    background-color: #fde8e8;
+}
+body.fondo-medio {
+    background-color: #fff8dc;
+}
+body.fondo-adecuado {
+    background-color: #e8f5e8;
+}
+body.fondo-alto {
+    background-color: #fff0dc;
+}
 /* ENCABEZADO */
 
 header {
