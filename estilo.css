@@ -79,20 +79,31 @@ main {
     margin-bottom: 20px;
 }
 
-.bajo {
-    background: #f8d7da;
+#nivel {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#nivel.bajo {
+    background-color: #f8d7da;
     color: #842029;
 }
-.medio {
-    background: #fff3cd;
+
+#nivel.medio {
+    background-color: #fff3cd;
     color: #664d03;
 }
-.adecuado {
-    background: #d1e7dd;
+
+#nivel.adecuado {
+    background-color: #d1e7dd;
     color: #0f5132;
 }
-.alto {
-    background: #ffe5b;
+
+#nivel.alto {
+    background-color: #ffe5b4;
     color: #7a4100;
 }
 
