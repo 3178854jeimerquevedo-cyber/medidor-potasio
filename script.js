@@ -58,6 +58,34 @@ function nuevaMedicion() {
 
     document.getElementById("nivel").textContent = nivelTexto;
     document.getElementById("nivel").className = "nivel" + claseNivel;
+
+    const cuadroNivel = document.getElementById("nivel");
+
+cuadroNivel.style.display = "inline-block";
+cuadroNivel.style.padding = "12px 25px";
+cuadroNivel.style.borderRadius = "10px";
+cuadroNivel.style.fontWeight = "bold";
+cuadroNivel.style.transition = "background-color 0.8s ease, color 0.8s ease";
+
+if (claseNivel === "bajo") {
+    cuadroNivel.style.backgroundColor = "#f8d7da";
+    cuadroNivel.style.color = "#842029";
+}
+
+if (claseNivel === "medio") {
+    cuadroNivel.style.backgroundColor = "#fff3cd";
+    cuadroNivel.style.color = "#664d03";
+}
+
+if (claseNivel === "adecuado") {
+    cuadroNivel.style.backgroundColor = "#d1e7dd";
+    cuadroNivel.style.color = "#0f5132";
+}
+
+if (claseNivel === "alto") {
+    cuadroNivel.style.backgroundColor = "#ffe5b4";
+    cuadroNivel.style.color = "#7a4100";
+}
     
     document.body.className = "fondo-" + claseNivel;
 }
