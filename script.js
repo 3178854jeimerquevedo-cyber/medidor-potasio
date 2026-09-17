@@ -102,3 +102,5 @@ if (claseNivel === "adecuado") {
 if (claseNivel === "alto") {
     document.body.style.backgroundColor = "#fff0dc";
 }
+
+}
