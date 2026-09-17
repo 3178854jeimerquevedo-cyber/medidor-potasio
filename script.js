@@ -57,7 +57,7 @@ function nuevaMedicion() {
     document.getElementById("azul").textContent = azul;
 
     document.getElementById("nivel").textContent = nivelTexto;
-    document.getElementById("nivel").className = "nivel" + claseNivel;
+    document.getElementById("nivel").className = "nivel " + claseNivel;
 
     const cuadroNivel = document.getElementById("nivel");
 
@@ -87,5 +87,18 @@ if (claseNivel === "alto") {
     cuadroNivel.style.color = "#7a4100";
 }
     
-    document.body.className = "fondo-" + claseNivel;
+    if (claseNivel === "bajo") {
+    document.body.style.backgroundColor = "#fde8e8";
+}
+
+if (claseNivel === "medio") {
+    document.body.style.backgroundColor = "#fff8dc";
+}
+
+if (claseNivel === "adecuado") {
+    document.body.style.backgroundColor = "#e8f5e8";
+}
+
+if (claseNivel === "alto") {
+    document.body.style.backgroundColor = "#fff0dc";
 }
