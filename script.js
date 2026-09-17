@@ -1,3 +1,106 @@
 function nuevaMedicion() {
-    alert("¡La función funciona!");
+
+    // Generamos una lectura de prueba
+    // para simular el sensor TCS230.
+    let lectura = Math.floor(Math.random() * 500) + 300;
+
+    // Valores simulados del sensor
+    let rojo = lectura;
+
+    let verde = Math.floor(lectura * 0.80);
+
+    let azul = Math.floor(lectura * 0.70);
+
+    // Conversión PROVISIONAL.
+    // Estos valores NO son mediciones reales
+    // de potasio.
+    let potasio = Math.round((900 - lectura) / 8);
+
+    // Evitamos valores negativos
+    if (potasio < 0) {
+        potasio = 0;
+    }
+
+    // Determinamos el nivel
+    let nivelTexto;
+    let claseNivel;
+
+    if  (potasio < 40) {
+
+        nivelTexto = "NIVEL: BAJO";
+        claseNivel = "bajo";
+    } else if (potasio <  80) {
+
+        nivelTexto = "NIVEL: MEDIO";
+        claseNivel = "medio";
+
+    } else if (potasio <= 120) {
+
+        nivelTexto = "NIVEL: ADECUADO";
+        claseNivel =  "adecuado";
+
+    } else {
+
+        nivelTexto = "NIVEL: ALTO";
+        claseNivel = "alto";
+    }
+
+    // Mostramos los resultados
+    document.getElementById("potasio").textContent = potasio;
+
+    document.getElementById("lectura").textContent = lectura;
+
+    document.getElementById("rojo").textContent = rojo;
+
+    document.getElementById("verde").textContent = verde;
+
+    document.getElementById("azul").textContent = azul;
+
+    document.getElementById("nivel").textContent = nivelTexto;
+    document.getElementById("nivel").className = "nivel " + claseNivel;
+
+    const cuadroNivel = document.getElementById("nivel");
+
+cuadroNivel.style.display = "inline-block";
+cuadroNivel.style.padding = "12px 25px";
+cuadroNivel.style.borderRadius = "10px";
+cuadroNivel.style.fontWeight = "bold";
+cuadroNivel.style.transition = "background-color 0.8s ease, color 0.8s ease";
+
+if (claseNivel === "bajo") {
+    cuadroNivel.style.backgroundColor = "#f8d7da";
+    cuadroNivel.style.color = "#842029";
+}
+
+if (claseNivel === "medio") {
+    cuadroNivel.style.backgroundColor = "#fff3cd";
+    cuadroNivel.style.color = "#664d03";
+}
+
+if (claseNivel === "adecuado") {
+    cuadroNivel.style.backgroundColor = "#d1e7dd";
+    cuadroNivel.style.color = "#0f5132";
+}
+
+if (claseNivel === "alto") {
+    cuadroNivel.style.backgroundColor = "#ffe5b4";
+    cuadroNivel.style.color = "#7a4100";
+}
+    
+    if (claseNivel === "bajo") {
+    document.body.style.backgroundColor = "#fde8e8";
+}
+
+if (claseNivel === "medio") {
+    document.body.style.backgroundColor = "#fff8dc";
+}
+
+if (claseNivel === "adecuado") {
+    document.body.style.backgroundColor = "#e8f5e8";
+}
+
+if (claseNivel === "alto") {
+    document.body.style.backgroundColor = "#fff0dc";
+}
+
 }
