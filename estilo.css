@@ -192,22 +192,40 @@ footer {
 
     main {
 
-        /* Recuadro de resultado de la medición */
-.resultado-medicion {
-    background-color: #000000;
-    color: #ffffff;
-    border-radius: 20px;
+/* Recuadro del resultado de la medición */
+.medidor {
+    background-color: #000000 !important;
+    color: #ffffff !important;
 }
 
-/* Todos los textos dentro del recuadro */
-.resultado-medicion h1,
-.resultado-medicion h2,
-.resultado-medicion h3,
-.resultado-medicion p,
-.resultado-medicion span,
-.resultado-medicion label {
-    color: #ffffff;
+/* Recuadro de información */
+.informacion {
+    background-color: #000000 !important;
+    color: #ffffff !important;
 }
-        width: 94%;
-    }
+
+/* Títulos y textos dentro de ambos recuadros */
+.medidor h2,
+.medidor p,
+.medidor strong,
+.medidor .unidad,
+.medidor .escala-ph,
+.medidor .barra-ph,
+.medidor .etiquetas-ph,
+.medidor .datos,
+.informacion h2,
+.informacion p,
+.informacion strong {
+    color: #ffffff !important;
+}
+
+/* Mantener visible el número del pH */
+.medidor #ph {
+    color: #ffffff !important;
+}
+
+/* Mantener los botones azules */
+.medidor button {
+    background-color: #1877e8;
+    color: #ffffff;
 }
