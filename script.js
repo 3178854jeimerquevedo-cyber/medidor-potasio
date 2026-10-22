@@ -26,12 +26,25 @@ function nuevaMedicion() {
     }
 
     if (cuadroNivel) {
-        cuadroNivel.textContent = nivelTexto;
-        cuadroNivel.className = "nivel " + claseNivel;
-        cuadroNivel.style.backgroundColor = "#DBEAFE";
-        cuadroNivel.style.color = "#1D4ED8";
+    cuadroNivel.textContent = nivelTexto;
+    cuadroNivel.className = "nivel " + claseNivel;
+
+    if (claseNivel === "bajo") {
+        cuadroNivel.style.backgroundColor = "#f8d7da";
+        cuadroNivel.style.color = "#842029";
+    } else if (claseNivel === "medio") {
+        cuadroNivel.style.backgroundColor = "#fff3cd";
+        cuadroNivel.style.color = "#664d03";
+    } else if (claseNivel === "adecuado") {
+        cuadroNivel.style.backgroundColor = "#d1e7dd";
+        cuadroNivel.style.color = "#0f5132";
+    } else {
+        cuadroNivel.style.backgroundColor = "#cfe2ff";
+        cuadroNivel.style.color = "#084298";
+    }
+
     }
 
     // El fondo permanece azul claro
     document.body.style.backgroundColor = "#DBEAFE";
-}
+
