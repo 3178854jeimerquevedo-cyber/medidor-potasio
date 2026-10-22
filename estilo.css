@@ -61,7 +61,7 @@ main {
     font-size: 25px;
 }
 
-/* RECUADRO AZUL DEL NIVEL */
+/* RECUADRO DEL NIVEL */
 .nivel,
 #nivel {
     display: inline-block;
@@ -69,8 +69,31 @@ main {
     border-radius: 10px;
     font-weight: bold;
     margin-bottom: 20px;
-    background-color: #DBEAFE !important;
-    color: #1D4ED8 !important;
+}
+
+/* ÁCIDO: ROJO */
+#nivel.bajo {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+/* LIGERAMENTE ÁCIDO: AMARILLO */
+#nivel.medio {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+/* CERCANO A NEUTRO: VERDE */
+#nivel.adecuado {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+/* ALCALINO: AZUL */
+#nivel.alto {
+    background-color: #cfe2ff;
+    color: #084298;
+
 }
 
 /* DATOS DEL SENSOR */
