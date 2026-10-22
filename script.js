@@ -58,4 +58,4 @@ function nuevaMedicion() {
 
     // Mantener el fondo general de la página azul claro
     document.body.style.backgroundColor = "#DBEAFE";
-}
+    }
