@@ -47,13 +47,4 @@ function nuevaMedicion() {
         cuadroNivel.style.color = colorTexto;
     }
 
-    // Color general de la página según la clasificación.
-    const coloresPagina = {
-        bajo: "#fde8e8",
-        medio: "#fff8dc",
-        adecuado: "#e8f5e8",
-        alto: "#e8f0ff"
-    };
-
-    document.body.style.backgroundColor = coloresPagina[claseNivel];
-}
+  
