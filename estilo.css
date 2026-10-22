@@ -7,7 +7,7 @@ body {
     font-family: "DM Sans", sans-serif;
     background: #DBEAFE;
     color: #222;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease;
 }
 
 /* ENCABEZADO */
@@ -93,7 +93,6 @@ main {
 #nivel.alto {
     background-color: #cfe2ff;
     color: #084298;
-}
 }
 
 /* DATOS DEL SENSOR */
@@ -194,3 +193,4 @@ footer {
     main {
         width: 94%;
     }
+}
