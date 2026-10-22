@@ -1,3 +1,4 @@
+/* CONFIGURACIÓN GENERAL */
 * {
     box-sizing: border-box;
 }
@@ -6,14 +7,14 @@ body {
     margin: 0;
     font-family: "DM Sans", sans-serif;
     background: #DBEAFE;
-    color: #222;
+    color: #ffffff;
     transition: background-color 0.5s ease;
 }
 
 /* ENCABEZADO */
 header {
     background: #074A52;
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 30px 20px;
 }
@@ -21,33 +22,37 @@ header {
 header h1 {
     margin: 0 0 10px;
     font-size: 30px;
+    color: #ffffff;
 }
 
 header p {
     margin: 0;
+    color: #ffffff;
 }
 
-/* CONTENIDO */
+/* CONTENIDO PRINCIPAL */
 main {
     width: 90%;
     max-width: 900px;
     margin: 30px auto;
 }
 
-/* TARJETA DEL MEDIDOR */
+/* TARJETA DEL MEDIDOR: FONDO NEGRO */
 .medidor {
-    background: white;
+    background: #000000;
+    color: #ffffff;
     padding: 30px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .medidor h2 {
     margin-top: 0;
+    color: #ffffff;
 }
 
-/* RESULTADO DE pH */
+/* RESULTADO DEL PH */
 .resultado {
     margin: 20px;
 }
@@ -55,10 +60,12 @@ main {
 #ph {
     font-size: 60px;
     font-weight: bold;
+    color: #ffffff;
 }
 
 .unidad {
     font-size: 25px;
+    color: #ffffff;
 }
 
 /* RECUADRO DEL NIVEL */
@@ -95,9 +102,18 @@ main {
     color: #084298;
 }
 
+/* ESCALA DE PH */
+.medidor p,
+.medidor span,
+.medidor strong,
+.medidor label {
+    color: #ffffff;
+}
+
 /* DATOS DEL SENSOR */
 .datos {
-    background: #f3f3f3;
+    background: #222222;
+    color: #ffffff;
     padding: 15px;
     border-radius: 10px;
     text-align: left;
@@ -107,12 +123,13 @@ main {
 
 .datos p {
     margin: 10px 0;
+    color: #ffffff;
 }
 
-/* BOTÓN AZUL */
+/* BOTONES AZULES */
 button {
     background: #2563EB;
-    color: white;
+    color: #ffffff;
     border: none;
     padding: 15px 25px;
     border-radius: 10px;
@@ -125,19 +142,28 @@ button:hover {
     background: #1D4ED8;
 }
 
-/* SECCIONES */
+/* SECCIONES DE INFORMACIÓN Y PROCESO */
 .informacion,
 .proceso {
-    background: white;
+    background: #000000;
+    color: #ffffff;
     margin-top: 25px;
     padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* TÍTULOS DE LAS SECCIONES */
 .informacion h2,
 .proceso h2 {
-    color: #2563EB;
+    color: #60A5FA;
+}
+
+.informacion p,
+.proceso p,
+.informacion strong,
+.proceso strong {
+    color: #ffffff;
 }
 
 /* PASOS DEL PROCESO */
@@ -150,7 +176,8 @@ button:hover {
 .pasos div {
     text-align: center;
     padding: 15px;
-    background: #eef5ee;
+    background: #222222;
+    color: #ffffff;
     border-radius: 15px;
 }
 
@@ -162,7 +189,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     background: #2563EB;
-    color: white;
+    color: #ffffff;
     border-radius: 50%;
     font-weight: bold;
 }
@@ -173,10 +200,14 @@ footer {
     padding: 25px;
     margin-top: 30px;
     background: #1c5127;
-    color: white;
+    color: #ffffff;
 }
 
-/* ADAPTACIÓN PARA CELULAR */
+footer p {
+    color: #ffffff;
+}
+
+/* ADAPTACIÓN PARA CELULARES */
 @media (max-width: 600px) {
     header h1 {
         font-size: 23px;
@@ -191,41 +222,15 @@ footer {
     }
 
     main {
+        width: 95%;
+    }
 
-/* Recuadro del resultado de la medición */
-.medidor {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-}
+    .medidor {
+        padding: 20px 12px;
+    }
 
-/* Recuadro de información */
-.informacion {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-}
-
-/* Títulos y textos dentro de ambos recuadros */
-.medidor h2,
-.medidor p,
-.medidor strong,
-.medidor .unidad,
-.medidor .escala-ph,
-.medidor .barra-ph,
-.medidor .etiquetas-ph,
-.medidor .datos,
-.informacion h2,
-.informacion p,
-.informacion strong {
-    color: #ffffff !important;
-}
-
-/* Mantener visible el número del pH */
-.medidor #ph {
-    color: #ffffff !important;
-}
-
-/* Mantener los botones azules */
-.medidor button {
-    background-color: #1877e8;
-    color: #ffffff;
+    .informacion,
+    .proceso {
+        padding: 20px 15px;
+    }
 }
