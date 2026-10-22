@@ -191,6 +191,23 @@ footer {
     }
 
     main {
+
+        /* Recuadro de resultado de la medición */
+.resultado-medicion {
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+/* Todos los textos dentro del recuadro */
+.resultado-medicion h1,
+.resultado-medicion h2,
+.resultado-medicion h3,
+.resultado-medicion p,
+.resultado-medicion span,
+.resultado-medicion label {
+    color: #ffffff;
+}
         width: 94%;
     }
 }
