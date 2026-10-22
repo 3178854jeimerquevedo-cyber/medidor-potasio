@@ -1,5 +1,4 @@
 function nuevaMedicion() {
-    // Simulación provisional: no es una lectura real del sensor.
     const ph = Math.round(Math.random() * 140) / 10;
 
     let nivelTexto;
@@ -19,14 +18,13 @@ function nuevaMedicion() {
         claseNivel = "alto";
     }
 
-    // Actualizar el número de pH
     const resultadoPh = document.getElementById("ph");
+    const cuadroNivel = document.getElementById("nivel");
+
     if (resultadoPh) {
         resultadoPh.textContent = ph.toFixed(1);
     }
 
-    // Actualizar el recuadro del nivel, manteniéndolo azul
-    const cuadroNivel = document.getElementById("nivel");
     if (cuadroNivel) {
         cuadroNivel.textContent = nivelTexto;
         cuadroNivel.className = "nivel " + claseNivel;
@@ -34,6 +32,6 @@ function nuevaMedicion() {
         cuadroNivel.style.color = "#1D4ED8";
     }
 
-    // Mantener siempre el fondo azul claro
+    // El fondo permanece azul claro
     document.body.style.backgroundColor = "#DBEAFE";
 }
