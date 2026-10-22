@@ -7,23 +7,9 @@ body {
     font-family: "DM Sans", sans-serif;
     background: #84FA48;
     color: #222;
-    transition: background-color 1.2s ease;
 }
 
-body.fondo-bajo { 
-    background-color: #f7262e;
-}
-body.fondo-medio {
-    background-color: #ea7734;
-}
-body.fondo-adecuado {
-    background-color: #7fd279;
-}
-body.fondo-alto {
-    background-color: #fff0dc;
-}
 /* ENCABEZADO */
-
 header {
     background: #074A52;
     color: white;
@@ -40,38 +26,32 @@ header p {
     margin: 0;
 }
 
-
 /* CONTENIDO */
-
 main {
     width: 90%;
     max-width: 900px;
     margin: 30px auto;
 }
 
-
 /* TARJETA DEL MEDIDOR */
-
 .medidor {
     background: white;
     padding: 30px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .medidor h2 {
     margin-top: 0;
 }
 
-
-/* RESULTADO */
-
+/* RESULTADO DE pH */
 .resultado {
     margin: 20px;
 }
 
-#potasio {
+#ph {
     font-size: 60px;
     font-weight: bold;
 }
@@ -80,48 +60,19 @@ main {
     font-size: 25px;
 }
 
-
-/* NIVEL */
-
-.nivel {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 10px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
+/* RECUADRO AZUL DEL NIVEL */
+.nivel,
 #nivel {
     display: inline-block;
     padding: 12px 25px;
     border-radius: 10px;
     font-weight: bold;
     margin-bottom: 20px;
+    background-color: #DBEAFE !important;
+    color: #1D4ED8 !important;
 }
-
-#nivel.bajo {
-    background-color: #DBEAFE;
-    color: #1D4ED8;
-}
-
-#nivel.medio {
-    background-color: #fff3cd;
-    color: #664d03;
-}
-
-#nivel.adecuado {
-    background-color: #d1e7dd;
-    color: #0f5132;
-}
-
-#nivel.alto {
-    background-color: #ffe5b4;
-    color: #7a4100;
-}
-
 
 /* DATOS DEL SENSOR */
-
 .datos {
     background: #f3f3f3;
     padding: 15px;
@@ -135,9 +86,7 @@ main {
     margin: 10px 0;
 }
 
-
-/* BOTÓN AZUL*/
-
+/* BOTÓN AZUL */
 button {
     background: #2563EB;
     color: white;
@@ -146,33 +95,29 @@ button {
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
-    trasnsition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background: #1D4ED8;
 }
 
-
 /* SECCIONES */
-
 .informacion,
 .proceso {
     background: white;
     margin-top: 25px;
     padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .informacion h2,
 .proceso h2 {
-    color: #218739;
+    color: #2563EB;
 }
 
-
 /* PASOS DEL PROCESO */
-
 .pasos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -186,6 +131,7 @@ button:hover {
     border-radius: 15px;
 }
 
+/* CÍRCULOS NUMERADOS AZULES */
 .pasos span {
     display: inline-flex;
     width: 40px;
@@ -196,12 +142,9 @@ button:hover {
     color: white;
     border-radius: 50%;
     font-weight: bold;
-
 }
 
-
 /* PIE DE PÁGINA */
-
 footer {
     text-align: center;
     padding: 25px;
@@ -210,16 +153,13 @@ footer {
     color: white;
 }
 
-
 /* ADAPTACIÓN PARA CELULAR */
-
 @media (max-width: 600px) {
-
     header h1 {
         font-size: 23px;
     }
 
-    .resultado #potasio {
+    .resultado #ph {
         font-size: 48px;
     }
 
@@ -230,5 +170,4 @@ footer {
     main {
         width: 94%;
     }
-
 }
