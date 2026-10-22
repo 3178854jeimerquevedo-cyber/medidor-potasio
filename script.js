@@ -1,106 +1,59 @@
 function nuevaMedicion() {
+    // SIMULACIÓN provisional: no es una lectura real del sensor.
+    const ph = Math.round(Math.random() * 140) / 10;
 
-    // Generamos una lectura de prueba
-    // para simular el sensor TCS230.
-    let lectura = Math.floor(Math.random() * 500) + 300;
-
-    // Valores simulados del sensor
-    let rojo = lectura;
-
-    let verde = Math.floor(lectura * 0.80);
-
-    let azul = Math.floor(lectura * 0.70);
-
-    // Conversión PROVISIONAL.
-    // Estos valores NO son mediciones reales
-    // de potasio.
-    let potasio = Math.round((900 - lectura) / 8);
-
-    // Evitamos valores negativos
-    if (potasio < 0) {
-        potasio = 0;
-    }
-
-    // Determinamos el nivel
     let nivelTexto;
     let claseNivel;
+    let colorFondo;
+    let colorTexto;
 
-    if  (potasio < 40) {
-
-        nivelTexto = "NIVEL: BAJO";
+    if (ph < 5.5) {
+        nivelTexto = "NIVEL: ÁCIDO";
         claseNivel = "bajo";
-    } else if (potasio <  80) {
-
-        nivelTexto = "NIVEL: MEDIO";
+        colorFondo = "#f8d7da";
+        colorTexto = "#842029";
+    } else if (ph < 6.5) {
+        nivelTexto = "NIVEL: LIGERAMENTE ÁCIDO";
         claseNivel = "medio";
-
-    } else if (potasio <= 120) {
-
-        nivelTexto = "NIVEL: ADECUADO";
-        claseNivel =  "adecuado";
-
+        colorFondo = "#fff3cd";
+        colorTexto = "#664d03";
+    } else if (ph <= 7.5) {
+        nivelTexto = "NIVEL: CERCANO A NEUTRO";
+        claseNivel = "adecuado";
+        colorFondo = "#d1e7dd";
+        colorTexto = "#0f5132";
     } else {
-
-        nivelTexto = "NIVEL: ALTO";
+        nivelTexto = "NIVEL: ALCALINO";
         claseNivel = "alto";
+        colorFondo = "#cfe2ff";
+        colorTexto = "#084298";
     }
 
-    // Mostramos los resultados
-    document.getElementById("potasio").textContent = potasio;
-
-    document.getElementById("lectura").textContent = lectura;
-
-    document.getElementById("rojo").textContent = rojo;
-
-    document.getElementById("verde").textContent = verde;
-
-    document.getElementById("azul").textContent = azul;
-
-    document.getElementById("nivel").textContent = nivelTexto;
-    document.getElementById("nivel").className = "nivel " + claseNivel;
-
+    const resultadoPh = document.getElementById("ph");
     const cuadroNivel = document.getElementById("nivel");
 
-cuadroNivel.style.display = "inline-block";
-cuadroNivel.style.padding = "12px 25px";
-cuadroNivel.style.borderRadius = "10px";
-cuadroNivel.style.fontWeight = "bold";
-cuadroNivel.style.transition = "background-color 0.8s ease, color 0.8s ease";
+    if (resultadoPh) {
+        resultadoPh.textContent = ph.toFixed(1);
+    }
 
-if (claseNivel === "bajo") {
-    cuadroNivel.style.backgroundColor = "#f8d7da";
-    cuadroNivel.style.color = "#842029";
-}
+    if (cuadroNivel) {
+        cuadroNivel.textContent = nivelTexto;
+        cuadroNivel.className = "nivel " + claseNivel;
+        cuadroNivel.style.display = "inline-block";
+        cuadroNivel.style.padding = "12px 25px";
+        cuadroNivel.style.borderRadius = "10px";
+        cuadroNivel.style.fontWeight = "bold";
+        cuadroNivel.style.backgroundColor = colorFondo;
+        cuadroNivel.style.color = colorTexto;
+    }
 
-if (claseNivel === "medio") {
-    cuadroNivel.style.backgroundColor = "#fff3cd";
-    cuadroNivel.style.color = "#664d03";
-}
+    // Color general de la página según la clasificación.
+    const coloresPagina = {
+        bajo: "#fde8e8",
+        medio: "#fff8dc",
+        adecuado: "#e8f5e8",
+        alto: "#e8f0ff"
+    };
 
-if (claseNivel === "adecuado") {
-    cuadroNivel.style.backgroundColor = "#d1e7dd";
-    cuadroNivel.style.color = "#0f5132";
-}
-
-if (claseNivel === "alto") {
-    cuadroNivel.style.backgroundColor = "#ffe5b4";
-    cuadroNivel.style.color = "#7a4100";
-}
-    
-    if (claseNivel === "bajo") {
-    document.body.style.backgroundColor = "#fde8e8";
-}
-
-if (claseNivel === "medio") {
-    document.body.style.backgroundColor = "#fff8dc";
-}
-
-if (claseNivel === "adecuado") {
-    document.body.style.backgroundColor = "#e8f5e8";
-}
-
-if (claseNivel === "alto") {
-    document.body.style.backgroundColor = "#fff0dc";
-}
-
+    document.body.style.backgroundColor = coloresPagina[claseNivel];
 }
