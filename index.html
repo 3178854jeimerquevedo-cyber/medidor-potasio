@@ -3,93 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-
-    <title>Medidor de pH del Suelo</title>
+    <title>Medidor de Color del Suelo</title>
     <link rel="stylesheet" href="estilo.css">
     <link rel="icon" type="image/jpeg" href="logo.jpeg">
 </head>
 
 <body>
     <header>
-        <h1>🌱 MEDIDOR DE pH DEL SUELO</h1>
-        <p>Sistema experimental para medir el pH de una muestra de suelo.</p>
+        <h1>🌱 MEDIDOR DE COLOR DEL SUELO</h1>
+        <p>Sistema experimental de lectura de colores mediante ESP32 y TCS3200.</p>
     </header>
 
     <main>
         <section class="medidor">
-            <h2>Resultado de la medición</h2>
+            <h2>Lecturas del sensor</h2>
+            <p id="estado">Consultando ThingSpeak...</p>
 
-            <div class="resultado">
-                <span id="ph">7.0</span>
-                <span class="unidad">pH</span>
-            </div>
-
-            <div id="nivel" class="nivel adecuado">
-                NIVEL: NEUTRO
-            </div>
-
-            <div class="escala-ph">
-                <p>Escala de pH</p>
-                <div class="barra-ph">
-                    <span>0</span>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span>5</span>
-                    <span>6</span>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-                    <span>11</span>
-                    <span>12</span>
-                    <span>13</span>
-                    <span>14</span>
+            <div class="colores">
+                <div class="color-card rojo">
+                    <div class="muestra-color" id="muestra-rojo"></div>
+                    <h3>Rojo</h3>
+                    <p id="rojo">--</p>
                 </div>
-                <div class="etiquetas-ph">
-                    <span>Ácido</span>
-                    <span>Neutro</span>
-                    <span>Alcalino</span>
+
+                <div class="color-card verde">
+                    <div class="muestra-color" id="muestra-verde"></div>
+                    <h3>Verde</h3>
+                    <p id="verde">--</p>
+                </div>
+
+                <div class="color-card azul">
+                    <div class="muestra-color" id="muestra-azul"></div>
+                    <h3>Azul</h3>
+                    <p id="azul">--</p>
                 </div>
             </div>
 
             <div class="datos">
-                <p><strong>Tipo de muestra:</strong> <span>Suelo</span></p>
-                <p><strong>Variable medida:</strong> <span>pH</span></p>
-                <p><strong>Rango de escala:</strong> <span>0 a 14</span></p>
+                <p><strong>Sensor:</strong> TCS3200/TCS230</p>
+                <p><strong>Controlador:</strong> ESP32</p>
+                <p><strong>Plataforma:</strong> ThingSpeak</p>
+                <p><strong>Tipo de lectura:</strong> Frecuencia estimada en Hz</p>
             </div>
 
-            <button onclick="nuevaMedicion()">NUEVA MEDICIÓN</button>
+            <button onclick="nuevaMedicion()">ACTUALIZAR MEDICIÓN</button>
         </section>
 
         <section class="informacion">
             <h2>¿Cómo funciona?</h2>
-            <p>Se prepara una muestra de suelo siguiendo el procedimiento adecuado para el sensor utilizado.</p>
-            <p>El sensor de pH detecta las características químicas de la muestra y genera una señal eléctrica.</p>
-            <p>El ESP32 procesa la señal y, con una calibración adecuada, permite estimar el pH de la muestra.</p>
-            <p><strong>Importante:</strong> el resultado depende del sensor, su calibración y el método de preparación de la muestra.</p>
-        </section>
-
-        <section class="proceso">
-            <h2>Proceso del proyecto</h2>
-            <div class="pasos">
-                <div><span>1</span><p>Muestra de suelo</p></div>
-                <div><span>2</span><p>Preparación</p></div>
-                <div><span>3</span><p>Sensor de pH</p></div>
-                <div><span>4</span><p>Señal eléctrica</p></div>
-                <div><span>5</span><p>ESP32</p></div>
-                <div><span>6</span><p>Resultado de pH</p></div>
-            </div>
+            <p>El sensor TCS3200 utiliza filtros para detectar la intensidad de los componentes rojo, verde y azul de la luz recibida.</p>
+            <p>El ESP32 mide la señal del sensor y envía los valores a ThingSpeak por Wi-Fi.</p>
+            <p>Esta lectura depende de la iluminación, la distancia, el material y la calibración.</p>
+            <p><strong>Importante:</strong> los valores de color no representan directamente el pH ni la concentración de potasio del suelo.</p>
         </section>
     </main>
 
     <footer>
-        <p>Proyecto escolar - Medidor experimental de pH del suelo</p>
+        <p>Proyecto escolar - Medidor experimental de color del suelo</p>
     </footer>
 
     <script src="script.js"></script>
