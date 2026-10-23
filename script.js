@@ -1,7 +1,8 @@
-function nuevaMedicion() {
-    // Simulación provisional: no es una lectura real del sensor.
-    const ph = Math.round(Math.random() * 140) / 10;
+const CANAL_THINGSPEAK = "3548549";
+const URL_THINGSPEAK =
+    `https://api.thingspeak.com/channels/${CANAL_THINGSPEAK}/feeds/last.json`;
 
+async function nuevaMedicion() {
     const resultadoPh = document.getElementById("ph");
     const cuadroNivel = document.getElementById("nivel");
 
@@ -10,43 +11,68 @@ function nuevaMedicion() {
         return;
     }
 
-    // Actualizar el número de pH
-    resultadoPh.textContent = ph.toFixed(1);
+    cuadroNivel.textContent = "CONSULTANDO THINGSPEAK...";
 
-    let colorFondo;
-    let colorTexto;
-    let colorPagina;
+    try {
+        const respuesta = await fetch(URL_THINGSPEAK, {
+            cache: "no-store"
+        });
 
-    // Clasificar el pH y cambiar los colores
-    if (ph < 5.5) {
-        cuadroNivel.textContent = "NIVEL: ÁCIDO";
-        colorFondo = "#f8d7da";
-        colorTexto = "#842029";
-        colorPagina = "#FDE8E8";
+        if (!respuesta.ok) {
+            throw new Error("No se pudieron consultar los datos.");
+        }
 
-    } else if (ph < 6.5) {
-        cuadroNivel.textContent = "NIVEL: LIGERAMENTE ÁCIDO";
-        colorFondo = "#fff3cd";
-        colorTexto = "#664d03";
-        colorPagina = "#FFF8DC";
+        const datos = await respuesta.json();
+        const ph = Number(datos.field1);
 
-    } else if (ph <= 7.5) {
-        cuadroNivel.textContent = "NIVEL: CERCANO A NEUTRO";
-        colorFondo = "#d1e7dd";
-        colorTexto = "#0f5132";
-        colorPagina = "#E8F5E8";
+        if (datos.field1 === null || datos.field1 === undefined ||
+            datos.field1 === "" || !Number.isFinite(ph) ||
+            ph < 0 || ph > 14) {
+            throw new Error("ThingSpeak no tiene una lectura de pH válida.");
+        }
 
-    } else {
-        cuadroNivel.textContent = "NIVEL: ALCALINO";
-        colorFondo = "#cfe2ff";
-        colorTexto = "#084298";
-        colorPagina = "#E8F0FF";
+        resultadoPh.textContent = ph.toFixed(2);
+
+        let colorFondo;
+        let colorTexto;
+        let colorPagina;
+
+        if (ph < 5.5) {
+            cuadroNivel.textContent = "NIVEL: ÁCIDO";
+            colorFondo = "#f8d7da";
+            colorTexto = "#842029";
+            colorPagina = "#FDE8E8";
+        } else if (ph < 6.5) {
+            cuadroNivel.textContent = "NIVEL: LIGERAMENTE ÁCIDO";
+            colorFondo = "#fff3cd";
+            colorTexto = "#664d03";
+            colorPagina = "#FFF8DC";
+        } else if (ph <= 7.5) {
+            cuadroNivel.textContent = "NIVEL: CERCANO A NEUTRO";
+            colorFondo = "#d1e7dd";
+            colorTexto = "#0f5132";
+            colorPagina = "#E8F5E8";
+        } else {
+            cuadroNivel.textContent = "NIVEL: ALCALINO";
+            colorFondo = "#cfe2ff";
+            colorTexto = "#084298";
+            colorPagina = "#E8F0FF";
+        }
+
+        cuadroNivel.style.backgroundColor = colorFondo;
+        cuadroNivel.style.color = colorTexto;
+        document.body.style.backgroundColor = colorPagina;
+
+    } catch (error) {
+        cuadroNivel.textContent = "NO SE PUDO ACTUALIZAR";
+        console.error("Error al consultar ThingSpeak:", error);
     }
-
-    // Cambiar el color del recuadro del nivel
-    cuadroNivel.style.backgroundColor = colorFondo;
-    cuadroNivel.style.color = colorTexto;
-
-    // Cambiar el fondo de toda la página
-    document.body.style.backgroundColor = colorPagina;
 }
+
+// Cargar la última lectura al abrir la página.
+document.addEventListener("DOMContentLoaded", () => {
+    nuevaMedicion();
+
+    // Actualizar automáticamente cada 15 segundos.
+    setInterval(nuevaMedicion, 15000);
+});
